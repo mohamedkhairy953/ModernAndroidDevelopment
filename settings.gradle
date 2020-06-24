@@ -1,0 +1,5 @@
+include ':core'
+include ':news_detail'
+include ':news_list'
+include ':app'
+rootProject.name = "ModernAndroidDevelopment"

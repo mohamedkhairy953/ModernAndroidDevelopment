@@ -1,0 +1,15 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../android_commons_configurations.gradle'
+
+android {
+
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':news_list')
+    implementation project(':news_detail')
+
+}
