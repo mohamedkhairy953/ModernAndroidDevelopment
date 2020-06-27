@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.khairy.core.helpers.base.MyResult
-import com.khairy.news_list.model.response.ArticlesResponse
 import com.khairy.news_list.presentation.intent.NewsListIntent
 import com.khairy.news_list.presentation.viewmodel.ArticlesViewModel
 import com.khairy.news_list.presentation.viewstate.NewsListState
@@ -43,7 +41,7 @@ class ArticlesFragments : Fragment() {
                     is NewsListState.Success -> {
 
                     }
-                    is NewsListState.Failed -> {
+                    is NewsListState.ServerLogicalFailure -> {
 
                     }
                     is NewsListState.NetworkError -> {

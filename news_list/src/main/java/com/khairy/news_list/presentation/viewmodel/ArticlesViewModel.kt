@@ -46,7 +46,7 @@ class ArticlesViewModel @ViewModelInject constructor(
             getArticlesResultLD.value = try {
                 NewsListState.Success(repo.getArticles())
             } catch (e: HttpException) {
-                NewsListState.Failed(e.message())
+                NewsListState.ServerLogicalFailure(e.message())
             } catch (e: IOException) {
                 NewsListState.NetworkError
             } catch (e: Exception) {
