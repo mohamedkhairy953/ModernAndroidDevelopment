@@ -9,7 +9,7 @@ import java.util.concurrent.CancellationException
 
 class CoroutineCallHandler {
     companion object {
-        suspend fun <T> call(serviceMethod: suspend () -> T): MyResult {
+        inline fun <reified T> call(serviceMethod: () -> T): MyResult {
             return try {
                 return MyResult.Success(serviceMethod())
             } catch (e: HttpException) {
