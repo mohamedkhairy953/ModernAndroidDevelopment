@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.FragmentScoped
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -16,16 +17,10 @@ import javax.inject.Singleton
  class NewsListModule {
 
     @Provides
-    fun provideArticlesWebService(retrofit: Retrofit) =
+    fun provideArticlesWebService(retrofit: Retrofit): ArticlesWebService =
         retrofit.create(ArticlesWebService::class.java)
 
     @Provides
-    @Singleton
     fun provideArticlesRepo(webService: ArticlesWebService) =
         ArticlesRepo(webService)
-
-    @Provides
-    fun provideArticlesViewModel(repo: ArticlesRepo) =
-        ArticlesViewModel(repo)
-
 }
