@@ -1,6 +1,7 @@
 package com.khairy.news_list.presentation.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class ArticlesFragments : Fragment() {
+class NewsListFragment : Fragment() {
     private val viewModel by viewModels<ArticlesViewModel>()
 
     override fun onCreateView(
@@ -36,18 +37,22 @@ class ArticlesFragments : Fragment() {
             viewModel.getArticlesResultLD.collect {
                 when (it) {
                     is NewsListState.Loading -> {
-
+                        Log.d("TAG", "observeViewModel: Loading")
                     }
                     is NewsListState.Success -> {
+                        Log.d("TAG", "observeViewModel: Success ${it.data}")
 
                     }
                     is NewsListState.ServerLogicalFailure -> {
+                        Log.d("TAG", "observeViewModel: ServerLogicalFailure")
 
                     }
                     is NewsListState.NetworkError -> {
+                        Log.d("TAG", "observeViewModel: NetworkError")
 
                     }
                     is NewsListState.ServerError -> {
+                        Log.d("TAG", "observeViewModel: ServerError")
 
                     }
                 }

@@ -1,5 +1,6 @@
 package com.khairy.news_list.presentation.viewmodel
 
+import android.util.Log
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
@@ -44,12 +45,15 @@ class ArticlesViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             getArticlesResultLD.value = NewsListState.Loading
             getArticlesResultLD.value = try {
-                NewsListState.Success(repo.getArticles())
+                val articles = repo.getArticles()
+                NewsListState.Success(articles)
             } catch (e: HttpException) {
                 NewsListState.ServerLogicalFailure(e.message())
             } catch (e: IOException) {
+                Log.d("TAG", "getArticles: ${e.message}")
                 NewsListState.NetworkError
             } catch (e: Exception) {
+                Log.d("TAG", "getArticles: ${e.message}")
                 NewsListState.ServerError
             }
         }

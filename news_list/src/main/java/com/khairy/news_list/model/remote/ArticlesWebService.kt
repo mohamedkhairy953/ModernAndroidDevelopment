@@ -14,7 +14,7 @@ import retrofit2.http.Query
  */
 
 interface ArticlesWebService {
-    @GET("v2/everything?q=bitcoin&from=2020-05-27&sortBy=publishedAt&apiKey=$API_TOKEN")
+    @GET("v2/everything?q=bitcoin&from=2020-05-27&sortBy=publishedAt&apiKey=5e9417d927f94dec88f3b53340855a37")
     suspend fun getAllArticles(): ArticlesResponse
 
 

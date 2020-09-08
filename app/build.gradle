@@ -9,6 +9,7 @@ android {
 
 dependencies {
     implementation project(':core')
+    implementation project(':navigation')
     implementation project(':news_list')
     implementation project(':news_detail')
 

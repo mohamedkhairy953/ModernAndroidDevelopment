@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ArticleModel(
-    val title: String,
-    val publishedAt: String,
-    val description: String,
-    val content: String,
-    val url: String,
-    @SerialName("urlToImage") val imageUrl: String
+  val title: String,
+   val publishedAt: String,
+     val description: String,
+     val content: String,
+val url: String,
+    val imageUrl: String
 )
