@@ -5,6 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.Text
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -29,7 +32,13 @@ class NewsListFragment : Fragment() {
 
         onClickActions()
         observeViewModel()
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return ComposeView(requireContext()).apply {
+            setContent {
+                Column {
+                    Text("this is my first compose")
+                }
+            }
+        }
     }
 
     private fun observeViewModel() {
